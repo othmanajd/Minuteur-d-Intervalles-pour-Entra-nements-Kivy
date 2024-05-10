@@ -1,0 +1,35 @@
+# Fichier ListeSerie.kv
+
+<FloatLayout>:
+    canvas.before:
+        Color:
+            rgb: 1, 1, 1  # Couleur de fond de l'ensemble de la fenêtre
+        Rectangle:
+            source: 'k.png'  # Image de fond
+            size: self.size  # Taille de l'image correspondant à la taille de la fenêtre
+            pos: self.pos  # Position de l'image
+
+    ActionBar:
+        pos_hint: {'top': 1}  # Positionne l'ActionBar en haut de la page
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                title: ''
+            ActionButton:
+                text: "series"
+                on_press: app.listeSerie()  
+            ActionButton:
+                text: "ajoutre serie"
+                on_press: app.ajouterSerie()
+            ActionButton:
+                text: "Supprimer serie"
+
+    GridLayout:
+        id: grid
+        cols: 5  # Augmenter le nombre de colonnes pour inclure la colonne "Edit"
+        row_default_height: '40dp'
+        row_force_default: True
+        size_hint_y: None
+        height: self.minimum_height
+        pos_hint: {'x': 0.001, 'center_y': 0.75}  # Positionne la table au centre de l'écran
+        spacing: 0

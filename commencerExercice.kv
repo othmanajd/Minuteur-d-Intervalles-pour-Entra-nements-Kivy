@@ -1,0 +1,95 @@
+FloatLayout:
+    canvas.before:
+        Color:
+            rgb: 1, 1, 1  # Couleur de fond de l'ensemble de la fenêtre
+        Rectangle:
+            source: 'k.png'  # Image de fond
+            size: self.size  # Taille de l'image correspondant à la taille de la fenêtre
+            pos: self.pos  # Position de l'image
+
+    ActionBar:
+        pos_hint: {'top': 1}  # Positionne l'ActionBar en haut de la page
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                title: ''
+                on_press: app.exerciceListe()
+            ActionButton:
+                text: "Exercices"
+                on_press: app.exerciceListe()
+            ActionButton:
+                text: "Ajouter Exercice"
+                on_press: app.ajouterExercice()
+            ActionButton:
+                text: "Supprimer Exercice"
+                on_press: app.supprimerExercice()
+
+    
+    Label:
+        id: nom_label
+        text: "exercice"
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+        font_size:35
+        color: 6/255, 1/255, 2/255, 1
+        padding: [10, 10]  # Ajouter un padding de 10 pixels autour du texte
+        canvas.before:
+            Color:
+                rgba: 1, 224/255, 230/255, 0.8  # Couleur de fond verte avec une opacité complète
+            Rectangle:
+                size: self.size[0] + 2 * self.padding[0], self.size[1] + 2 * self.padding[1]  # Taille du rectangle ajustée avec le padding
+                pos: self.pos[0] - self.padding[0], self.pos[1] - self.padding[1]
+
+
+    Label:
+        id: remaining_time_label
+        text: "Label"
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+        font_size:100
+        padding: [20, 20]  # Ajouter un padding de 10 pixels autour du texte
+        canvas.before:
+            Color:
+                rgba: 108/255, 107/255, 106/255, 0.8  # Couleur de fond verte avec une opacité complète
+            Rectangle:
+                size: self.size[0] + 2 * self.padding[0], self.size[1] + 2 * self.padding[1]  # Taille du rectangle ajustée avec le padding
+                pos: self.pos[0] - self.padding[0], self.pos[1] - self.padding[1] 
+    Button:
+        id: stop_button  # Attribuez un ID au bouton "Arrêter"
+        text: "Arrêter"
+        size_hint: None, None
+        size: 200, 100
+        pos_hint: {'center_x': 0.2, 'center_y': 0.3}
+        background_color: 1, 0, 0, 1 
+        on_press: app.stop()
+        font_size:35
+        
+        
+
+    Button:
+        id: restart_button  # Attribuez un ID au bouton "Recommencer"
+        text: "Recommencer"
+        size_hint: None, None
+        size: 240, 100
+        pos_hint: {'center_x': 0.8, 'center_y': 0.3}
+        background_color: 0, 0.7, 0.7, 1
+        on_press: app.restart()
+        font_size:30
+
+
+    Button:
+        id: continue_button   # Attribuez un ID au bouton "Continuer"
+        text: "Continuer"
+        size_hint: None, None
+        size: 200, 100
+        pos_hint: {'center_x': 0.5, 'center_y': 0.3} 
+        on_press: app.continuer()
+        background_color: 0, 1, 0, 1
+        opacity: 0
+        font_size:35
+
+
+
+

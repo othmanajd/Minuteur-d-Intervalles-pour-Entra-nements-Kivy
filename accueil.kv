@@ -1,0 +1,31 @@
+FloatLayout:
+    canvas.before:
+        Color:
+            rgb: 1, 1, 1  # Couleur de fond de l'ensemble de la fenêtre
+        Rectangle:
+            source: 'k.png'  # Image de fond
+            size: self.size  # Taille de l'image correspondant à la taille de la fenêtre
+            pos: self.pos  # Position de l'image
+
+    ActionBar:
+        pos_hint: {'top': 1}  # Positionne l'ActionBar en haut de la page
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                title: ''
+            ActionButton:
+                text: ""
+    Label:
+        text: "Bienvenue dans notre application !\n Explorez les différentes fonctionnalités \n et ne hésitez pas à nous contacter \n si vous avez des questions  ou des suggestions.\n\n Nous vous souhaitons une excellente\n expérience !"
+        font_size: 27
+        halign: 'center'
+        valign: 'middle'
+        markup: True
+    Button:
+        text: "Commencer l'entraînement"
+        size_hint: (0.7, 0.1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.25}
+        on_press: app.Commencer()  # Appeler la fonction de connexion lorsque le bouton est pressé
+        background_color: 0, 162, 163, 1
+        font_size:32
+        color: 0, 0, 70 , 1

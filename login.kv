@@ -1,0 +1,75 @@
+FloatLayout:
+    canvas.before:
+        Color:
+            rgb: 1, 1, 1  # Couleur de fond de l'ensemble de la fenêtre
+        Rectangle:
+            source: 'k.png'  # Image de fond
+            size: self.size  # Taille de l'image correspondant à la taille de la fenêtre
+            pos: self.pos  # Position de l'image
+
+    Label:
+        text:'Connexion'
+        color: 0, 0, 0, 1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+        font_size:40
+
+    Label:
+        text:'Entrer votre Email :'
+        color: 0, 0, 0, 1
+        pos_hint: {'center_x': 0.27, 'center_y': 0.69}
+        font_size:30
+
+    TextInput:
+        id: email_input
+        hint_text: "Email..."
+        size_hint: (0.9, 0.08)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+        background_color: 0, 0, 0, 0
+        font_size:35
+        multiline:False
+
+    Label:
+        text:'Entrer votre Mot de passe :'
+        pos_hint: {'center_x': 0.40, 'center_y': 0.49}
+        font_size:35
+        color: 0, 0, 0, 1
+
+    TextInput:
+        id: password_input
+        hint_text: "Mot de passe..."
+        size_hint: (0.9, 0.08)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+        password: True  # Pour masquer le texte du mot de passe
+        background_color: 0, 0, 0, 0
+        font_size:30
+        color: 0, 0, 0, 1
+        multiline:False   
+
+    Button:
+        text: "Se connecter"
+        size_hint: (0.3, 0.1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.25}
+        on_press: app.login(email_input.text, password_input.text)  # Appeler la fonction de connexion lorsque le bouton est pressé
+        background_color: 0, 0, 0, 0  # Transparent
+        font_size:32
+        color: 0, 0, 70 , 1
+        border: (2, 2, 2, 2)  # Définit la taille de la bordure (haut, droite, bas, gauche)
+        border_radius: [10]  # Définit le rayon de la bordure pour créer des coins arrondis
+    
+    Label:
+        id: error_label
+        text: ""
+        color: 1, 0, 0, 1  # Couleur rouge pour le message d'erreur
+        pos_hint: {'center_x': 0.5, 'center_y': 0.32}
+
+    Label:
+        text:"Vous n'avez pas encore de compte ?"
+        pos_hint: {'center_x': 0.3, 'center_y': 0.1}
+
+    Button:
+        text: "click ici"
+        size_hint: (0.3, 0.1)
+        pos_hint: {'center_x': 0.7, 'center_y': 0.1}
+        on_press: app.singup(email_input.text, password_input.text) # Appeler la fonction de connexion lorsque le bouton est pressé
+        background_color: 0, 0, 0, 0  # Transparent
+        color: 0, 0, 70 , 1
